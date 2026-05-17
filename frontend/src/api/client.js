@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const isProd = import.meta.env.PROD;
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: isProd ? '/_/backend/api' : '/api',
   timeout: 15000,
   headers: { 'Content-Type': 'application/json' },
 });
